@@ -25,4 +25,24 @@ class ConferenceController extends AbstractController
             ),
         );
     }
+
+    /**
+     * @Route("/conference/{id}", name="conference")
+     */
+    public function show(Environment $twig, Conference $conference, CommentRepository $commentRepository): Response
+    {
+        return new Response(
+            $twig->render('conference/show.html.twig', [
+                'conference' => $conference,
+                'comments' => $commentRepository->findBy(
+                    [
+                        'conference' => $conference
+                    ],
+                    [
+                        'createdAt' => 'DESC'
+                    ]
+                )
+            ])
+        );
+    }
 }
