@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Conference;
+use App\Repository\CommentRepository;
 use App\Repository\ConferenceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +16,7 @@ class ConferenceController extends AbstractController
     /**
      * @Route("/{name}", name="homepage")
      */
-    public function index(Environment $twig, ConferenceRepository $conferenceRepository,): Response
+    public function index(Environment $twig, ConferenceRepository $conferenceRepository): Response
     {
         return new Response(
             $twig->render(
