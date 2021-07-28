@@ -56,7 +56,7 @@ class Comment
     private $photoFilename;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, options={"default": "submitted"})
      */
     private $state;
 
