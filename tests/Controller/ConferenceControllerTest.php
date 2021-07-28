@@ -39,10 +39,16 @@ class ConferenceControllerTest extends WebTestCase
     //     $client->submitForm('comment_form_submit', [
     //         'comment_form[author]' => 'john',
     //         'comment_form[text]' => 'some feedback from an automated functional test',
-    //         'comment_form[email]' => 'john@autotest.org',
+    //         'comment_form[email]' => $email = 'john@autotest.org',
     //         'comment_form[photo]' => dirname(__DIR__, 2) . '/public/images/under-construction.gif'
     //     ]);
     //     $this->assertResponseRedirects();
+    // 
+    // // simulate comment validation
+    // $comment = self::$container->get(CommentRepository::class)->findOneByEmail($email);
+    // $comment->setState('published');
+    // self::$container->get(EntityManagerInterface::class)->flush();
+    // 
     //     $client->followRedirect();
     //     $this->assertSelectorExists('div:contains("There are 2 comments")');
     // }
