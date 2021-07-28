@@ -33,7 +33,7 @@ class SpamCheckerTest extends TestCase
     {
         $client = new MockHttpClient([$response]);
         $checker = new SpamChecker($client, 'abcde');
-
+        //TODO test keeps failing
         $score = $checker->getSpamScore($comment, $context);
         $this->assertSame($expectedScore, $score);
     }
